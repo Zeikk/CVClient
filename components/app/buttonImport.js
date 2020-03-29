@@ -89,7 +89,6 @@ const ButtonImport = () => {
                     localStorage.setItem('id', value.data.id);
                     setLog(value.data.login)
                     setId(value.data.id)
-                    document.getElementById('login').classList.toggle('is-active')
                     document.getElementsByTagName('html')[0].classList.toggle('is-clipped')
                 }
                 
