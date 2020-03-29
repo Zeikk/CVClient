@@ -84,11 +84,11 @@ const aboutForm = () => {
                     {
                         addPhotoHook ?
                         <div className="column is-4 is-4-tablet">
-                            <div className="addPicture has-text-centered"  onClick={() => document.getElementById("insertPhoto").click()}>
+                            <div id="insertPhoto" className="addPicture has-text-centered"  onClick={() => document.getElementById("insertPhoto").click()}>
                                 <i className="fas fa-camera is-size-1 is-size-3-tablet is-size-1-mobile" style={{margin:"auto"}}></i> 
                                 <p>Ajouter une photo</p>
                                 <label className="file-label">
-                                    <input className="file-input" type="file" name="insertPhoto" id="insertPhoto" accept="image/*" onChange={() => importPhoto()}/>   
+                                    <input className="file-input" type="file" name="insertPhoto" accept="image/*" onChange={() => importPhoto()}/>   
                                 </label>
                             </div>
                         </div>
@@ -112,13 +112,13 @@ const aboutForm = () => {
                         <div className="column is-8 is-6-tablet">
                             <div className="field">
                                 <label className="label">Nom *</label>
-                                <div className="control">
+                                <div className="control" id="nomInsert">
                                     <input name="nom" className="input" type="text" value={nom} onChange={event => updateformValue("nom", event.target.value)} placeholder="Nom" required />
                                 </div>
                             </div>
                             <div className="field">
                                 <label className="label">Prenom *</label>
-                                <div className="control">
+                                <div className="control" id="prenomInsert">
                                     <input name="prenom" className="input" type="text" value={prenom} onChange={event => updateformValue("prenom", event.target.value)} placeholder="Prenom" required />
                             </div>
                         </div>
@@ -127,7 +127,7 @@ const aboutForm = () => {
                 
                 <div className="field">
                     <label className="label">Email *</label>
-                    <div className="control">
+                    <div className="control" id="emailInsert">
                         <input name="mail" className="input" value={mail} onChange={event => updateformValue("mail", event.target.value)} type="email" placeholder="exemple@gmail.com" />
                     </div>
                 </div>
@@ -136,7 +136,7 @@ const aboutForm = () => {
 
                     <label className="label">Numéro de téléphone *</label>
 
-                    <div className="field is-horizontal">
+                    <div className="field is-horizontal" id="phoneInsert">
 
                         <div className="field-body">
                             <div className="field is-expanded">
@@ -159,7 +159,7 @@ const aboutForm = () => {
 
                 <div className="field">
                     <label className="label">Adresse *</label>
-                    <div className="control">
+                    <div className="control" id="adressInsert">
                         <input name="adresse" className="input" value={adresse} onChange={event => updateformValue("adresse", event.target.value)} type="phone" placeholder="1 impasse de l Eglise" />
                     </div>
                 </div>
@@ -282,7 +282,7 @@ const aboutForm = () => {
                     about_siteWeb && (
                         <div className="field">
                             <label className="label">Site web : </label>
-                            <div className="control">
+                            <div className="control" id="webSiteInsert">
                                 <input name="adresse" className="input" value={about_siteWeb_text} onChange={event => updateformValue("about_siteWeb_text", event.target.value)} type="phone" placeholder="https://www.cvcreator.com" />
                             </div>
                         </div>
@@ -292,7 +292,7 @@ const aboutForm = () => {
                     about_facebook && (
                         <div className="field">
                             <label className="label">Facebook : </label>
-                            <div className="control">
+                            <div className="control" id ="fbInsert">
                                 <input name="adresse" className="input" value={about_facebook_text} onChange={event => updateformValue("about_facebook_text", event.target.value)} type="phone" placeholder="cvcreator" />
                             </div>
                         </div>
@@ -302,7 +302,7 @@ const aboutForm = () => {
                     about_linkedin && (
                         <div className="field">
                             <label className="label">Linkedin : </label>
-                            <div className="control">
+                            <div className="control" id="linkedinInsert">
                                 <input name="adresse" className="input" value={about_linkedin_text} onChange={event => updateformValue("about_linkedin_text", event.target.value)} type="phone" placeholder="@cvcreator" />
                             </div>
                         </div>
@@ -312,7 +312,7 @@ const aboutForm = () => {
                     about_instagram && (
                         <div className="field">
                             <label className="label">Instagram : </label>
-                            <div className="control">
+                            <div className="control" id="instaInsert">
                                 <input name="adresse" className="input" value={about_instagram_text} onChange={event => updateformValue("about_instagram_text", event.target.value)} type="phone" placeholder="@cvcreator" />
                             </div>
                         </div>
@@ -322,7 +322,7 @@ const aboutForm = () => {
                     about_twitter && (
                         <div className="field">
                             <label className="label">Twitter : </label>
-                            <div className="control">
+                            <div className="control" id="twitterInsert">
                                 <input name="adresse" className="input" value={about_twitter_text} onChange={event => updateformValue("about_twitter_text", event.target.value)} type="phone" placeholder="@cvcreator" />
                             </div>
                         </div>
@@ -332,22 +332,23 @@ const aboutForm = () => {
                     about_github && (
                         <div className="field">
                             <label className="label">Github : </label>
-                            <div className="control">
+                            <div className="control" id="githubInsert">
                                 <input name="adresse" className="input" value={about_github_text} onChange={event => updateformValue("about_github_text", event.target.value)} type="phone" placeholder="@cvcreator" />
                             </div>
                         </div>
                     )
                 }
 
-                
-                <ButtonInfoSupp name="Date de Naissance" value="about_dateDeNaissance" actif={about_dateDeNaissance} icon="fas fa-calendar-alt"/>
-                <ButtonInfoSupp name="Permis de conduire" value="about_permisDeConduire" actif={about_permisDeConduire} icon="fas fa-car"/>
-                <ButtonInfoSupp name="Site Web" value="about_siteWeb" actif={about_siteWeb} icon="fas fa-link"/>
-                <ButtonInfoSupp name="Facebook" value="about_facebook" actif={about_facebook} icon="fab fa-facebook-f"/>
-                <ButtonInfoSupp name="LinkedIn" value="about_linkedin" actif={about_linkedin} icon="fab fa-linkedin"/>
-                <ButtonInfoSupp name="Instagram" value="about_instagram" actif={about_instagram} icon="fab fa-instagram"/>
-                <ButtonInfoSupp name="Twitter" value="about_twitter" actif={about_twitter} icon="fab fa-twitter"/>
-                <ButtonInfoSupp name="Github" value="about_github" actif={about_github} icon="fab fa-github"/>
+                <div id="facultativeInsert">
+                    <ButtonInfoSupp name="Date de Naissance" value="about_dateDeNaissance" actif={about_dateDeNaissance} icon="fas fa-calendar-alt"/>
+                    <ButtonInfoSupp name="Permis de conduire" value="about_permisDeConduire" actif={about_permisDeConduire} icon="fas fa-car"/>
+                    <ButtonInfoSupp name="Site Web" value="about_siteWeb" actif={about_siteWeb} icon="fas fa-link"/>
+                    <ButtonInfoSupp name="Facebook" value="about_facebook" actif={about_facebook} icon="fab fa-facebook-f"/>
+                    <ButtonInfoSupp name="LinkedIn" value="about_linkedin" actif={about_linkedin} icon="fab fa-linkedin"/>
+                    <ButtonInfoSupp name="Instagram" value="about_instagram" actif={about_instagram} icon="fab fa-instagram"/>
+                    <ButtonInfoSupp name="Twitter" value="about_twitter" actif={about_twitter} icon="fab fa-twitter"/>
+                    <ButtonInfoSupp name="Github" value="about_github" actif={about_github} icon="fab fa-github"/>
+                </div>
                 
                 
             </form>

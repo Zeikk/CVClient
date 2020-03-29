@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 import UserContext from "../UserContext";
 
 
-function ToolbarItem({ name, icon }) {
+function ToolbarItem({name, icon }) {
     const {
         sectionSelect,
         updatesectionSelect
     } = useContext(UserContext);
     return (
-        <div className="columns is-centered" >
+        <div className="columns is-centered" id={name}>
             <div
                 className={sectionSelect == name ? "column has-text-centered is-vcentered box-toolbar box-toolbar-selected" : "column has-text-centered is-vcentered box-toolbar"}
                 onClick={() => (updatesectionSelect(name))}

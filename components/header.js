@@ -6,7 +6,8 @@ const header = () => {
     const {
         isLog,
         setLog,
-        setId
+        setId,
+        setFirstVisite
     } = useContext(UserContext)
 
     useEffect(() => {

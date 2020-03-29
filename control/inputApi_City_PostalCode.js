@@ -33,7 +33,7 @@ const Autosuggest = () => {
         {/* Input postal code*/}
             <div className="field">
                 <label className="label">Code Postal *</label>
-                <div className="control">
+                <div className="control" id="postalCodeInset">
                     <input
                         className="input"
                         name="postal"
@@ -63,7 +63,7 @@ const Autosuggest = () => {
             {/* Input city*/}
             <div className="field">
                 <label className="label">Ville *</label>
-                <div className="control">
+                <div className="control" id="cityInsert">
                     <input
                         className="input"
                         name="ville" 

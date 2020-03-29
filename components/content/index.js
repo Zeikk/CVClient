@@ -43,7 +43,8 @@ const contentForm = () => {
         content_loisirs,
         content_certification,
         content_ExperiencePro,
-        content_projet
+        content_projet,
+        firstVisite
     } = useContext(UserContext);
      
 
@@ -84,9 +85,10 @@ const contentForm = () => {
     const onSortEnd = ({oldIndex, newIndex}) => {
         updateformValue('content', [oldIndex, newIndex])
     }
-
+    
     return (
-        <div className="column" style={{ height: "88vh", overflowX: "auto" }}>
+        
+        <div id="ajoutContenu" className="column" style={{ height: "88vh", overflowX: "auto" }}>
                 <SortableContainer onSortEnd={onSortEnd}>
                     {
 
