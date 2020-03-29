@@ -80,7 +80,7 @@ const visualisationA4 = () => {
                     <ButtonImport/>
                 </div>
             </div>
-            <div className={modalDownload ? "modal is-active" : "modal"}>
+            <div className={modalDownload ? "modal is-active" : "modal"} id="buttonsDownload">
                 <div className="modal-background" onClick={() => (setModalDownload(!modalDownload))}></div>
                 <div className="modal-card">
                     <header class="modal-card-head">

@@ -156,6 +156,8 @@ const ButtonJSON = () => {
                     localStorage.setItem('id', value.data.id);
                     setLog(value.data.login)
                     setId(value.data.id)
+                    document.getElementById('login').classList.toggle('is-active')
+                    document.getElementsByTagName('html')[0].classList.toggle('is-clipped')
                 }
                 
             })
@@ -180,7 +182,7 @@ const ButtonJSON = () => {
             </div>
         ):(
             <>
-            <div className="column is-3 is-centered"  onClick={() => {document.getElementById('login').classList.toggle('is-active'), document.getElementsByTagName('html')[0].classList.toggle('is-clipped')}}>
+            <div className="column is-3 is-centered"  onClick={() => {document.getElementById('login').classList.toggle('is-active'), document.getElementsByTagName('html')[0].classList.toggle('is-clipped'), document.getElementById('buttonsDownload').classList.toggle('modal is-active')}}>
                 <div className="field is-grouped">
                     <div className="control">
                         <button class="button is-outlined">
