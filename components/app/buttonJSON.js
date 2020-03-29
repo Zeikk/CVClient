@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
+import {logUser} from '..//control/actions/typesActions'
 import UserContext from "../UserContext"
+import Notif from "../notifs/Notifs"
 
 function download(filename, text) {
     let lien = document.createElement('a');
@@ -63,7 +65,7 @@ const ButtonJSON = () => {
         content,
         isLog,
         setLog,
-        setToken
+        setId
     } = useContext(UserContext)
 
     const fichierJSON = {
@@ -115,20 +117,50 @@ const ButtonJSON = () => {
 
     const [mailForm, setMailForm] = useState('')
     const [mdp, setMdp] = useState('')
+    const [message, setMessage] = useState('')
+
 
     function login(){
 
-        const res = logUser({
-            mail: mailForm, 
-            mdp: mdp
-        })
-        res.then((value) => {
-            localStorage.setItem('login', value.data.login);
-            localStorage.setItem('token', value.data.token);
-            setLog(value.data.login)
-            setToken(value.data.token)
-            document.getElementsByTagName('html')[0].classList.toggle('is-clipped')
-        })
+        if(mdp == "" && mailForm == ""){
+            setMessage("Champs du formulaire vide")
+            document.getElementById('notifEmpty').classList.toggle('is-hidden')
+            document.getElementById('notifEmpty').classList.toggle('fadeInUp')
+            document.getElementById('notifEmpty').classList.toggle('animated')
+            setTimeout(() =>{ 
+                document.getElementById('notifEmpty').classList.toggle('is-hidden')
+                document.getElementById('notifEmpty').classList.toggle('fadeInUp')
+                document.getElementById('notifEmpty').classList.toggle('animated')
+            }, 3000);
+        }
+        else{
+            const res = logUser({
+                mail: mailForm, 
+                mdp: mdp
+            })
+            res.then((value) => {
+                console.log(value)
+                if(value.error){
+                    setMessage("Données invalides")
+                    document.getElementById('notifEmpty').classList.toggle('is-hidden')
+                    document.getElementById('notifEmpty').classList.toggle('fadeInUp')
+                    document.getElementById('notifEmpty').classList.toggle('animated')
+                    setTimeout(() =>{ 
+                        document.getElementById('notifEmpty').classList.toggle('is-hidden')
+                        document.getElementById('notifEmpty').classList.toggle('fadeInUp')
+                        document.getElementById('notifEmpty').classList.toggle('animated')
+                    }, 3000);
+                }
+                else{
+                    localStorage.setItem('login', value.data.login);
+                    localStorage.setItem('id', value.data.id);
+                    setLog(value.data.login)
+                    setId(value.data.id)
+                }
+                
+            })
+        }
+        
     }
 
     return (
@@ -148,7 +180,7 @@ const ButtonJSON = () => {
             </div>
         ):(
             <>
-            <div className="column is-3 is-centered"  onClick={() => download("CV.json", JSON.stringify(fichierJSON, null, '\t'))}>
+            <div className="column is-3 is-centered"  onClick={() => {document.getElementById('login').classList.toggle('is-active'), document.getElementsByTagName('html')[0].classList.toggle('is-clipped')}}>
                 <div className="field is-grouped">
                     <div className="control">
                         <button class="button is-outlined">
@@ -169,6 +201,12 @@ const ButtonJSON = () => {
 						</header>
 						<section className="modal-card-body">
                             <section className="section has-text-centered">
+                                <div className="columns">
+                                    <div className="column is-2">
+                                        <Notif id = 'notifEmpty'
+                                        messageNotif = {message}/>
+                                    </div>
+                                </div>
                                 <h1 className="title is-2">Connectez-vous</h1>
                             </section>
                             <section className="">
