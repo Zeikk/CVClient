@@ -127,7 +127,6 @@ const ButtonImport = () => {
                         </button>
                     </div>
                 </div>
-                </div>
             </div>
             <div className="modal" id="login">
 				<div className="modal-background" onClick={(e) => {document.getElementById('login').classList.toggle('is-active'), document.getElementsByTagName('html')[0].classList.toggle('is-clipped')}}></div>
@@ -178,8 +177,9 @@ const ButtonImport = () => {
                                     </div>
                                 </div>
                             </section>
-			</section>
-		</div>
+        			    </section>
+                    </div>
+        		</div>
             </div>
             </>
         )}
