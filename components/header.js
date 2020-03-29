@@ -43,7 +43,7 @@ const header = () => {
             <div>
                 <nav className="navbar" role="navigation" aria-label="main navigation">
                   <div className="navbar-brand">
-                    <a className="navbar-item title" href="https://cvcreatorcom.now.sh/">
+                    <a className="navbar-item title" href="/">
                         CVCreator
                     </a>
 
@@ -60,7 +60,7 @@ const header = () => {
                         <a className="navbar-item" href="/app">
                             Créer un CV
                         </a>
-                        <a className="navbar-item" href="https://cvcreatorcom.now.sh/#conseils">
+                        <a className="navbar-item" href="/#conseils">
                             Nos conseils
                         </a>
                         {isLog === 'true' && (
