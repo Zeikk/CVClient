@@ -179,7 +179,6 @@ const ButtonImport = () => {
                             </section>
         			    </section>
                     </div>
-        		</div>
             </div>
             </>
         )}
