@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import {logUser} from '../control/actions/typesActions'
+import {logUser} from '../../control/actions/typesActions'
 import UserContext from "../UserContext"
 import Notif from "../notifs/Notifs"
 
