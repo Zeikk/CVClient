@@ -95,11 +95,10 @@ export const updateAdresse = async (user)  => {
 	return res
 }
 
-export const deleteUser = async (user)  => {
+export const deleteUser = async (id)  => {
 
-	console.log(user)
-	const res = await axios.delete('https://cv-creator-server.herokuapp.com/users/me', {
-		id: user.id
+	const res = await axios.post('https://cv-creator-server.herokuapp.com/users/delete/me', {
+		id: id
 	}).catch(() => {
 		return {
 			error: true

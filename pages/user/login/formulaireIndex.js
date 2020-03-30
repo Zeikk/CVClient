@@ -52,8 +52,8 @@ const Login = () => {
                     }, 3000);
                 }
                 else{
-                    localStorage.setItem('login', value.data.login);
-                    localStorage.setItem('id', value.data.id);
+                    localStorage.setItem('login', value.data.login)
+                    localStorage.setItem('id', value.data.id)
                     setLog(value.data.login)
                     setId(value.data.id)
                     location.assign('/')
