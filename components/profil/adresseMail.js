@@ -1,3 +1,9 @@
+/******
+ * Authors :  Alexis LEGRAS, Alexis LEPRESLE, Loick LEPREVOST, Matthis Rivat et Pierre LE CORFF
+ * Date :  2019/2020
+ * Description : CvCreator, DUT Informatique 
+******/
+
 import React, {useContext, useState, useEffect} from 'react'
 import UserContext from '../UserContext'
 import {getUser, updateAdresse} from '../../control/actions/typesActions'
