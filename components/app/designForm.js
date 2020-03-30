@@ -1,3 +1,9 @@
+/******
+ * Authors :  Alexis LEGRAS, Alexis LEPRESLE, Loick LEPREVOST, Matthis RIVAT et Pierre LE CORFF
+ * Date :  2019/2020
+ * Description : CvCreator, DUT Informatique 
+******/
+
 import React, { useContext } from 'react';
 import UserContext from "../UserContext"
 
@@ -17,25 +23,22 @@ function ButtonColor({ colorcode, classColor, variable, option}) {
             margin: "inherit",
             border: "transparent",
         }
-      }
-
+    }
 
     return (
-            <div className="control">
-                <a className={`button is-rounded ${classColor}`} onClick={() =>  updateformValue(variable, colorcode)}>
-                    {
-                    variable == "colorHeader" ?
-                            <p>{colorHeader == colorcode && (<i className="fas fa-check" style={{ margin: "0" }}></i>)}</p>
-                    :
-                            <p>{colorContent == colorcode && (<i className="fas fa-check" style={{ margin: "0" }}></i>)}</p>
-                    }
-                
-                    {
-                        option && <input style={styles.boutonColor} type="color" onChange={(e) => updateformValue(variable, e.target.value)} />
-                    }
-                </a>
-
-            </div>
+        <div className="control">
+            <a className={`button is-rounded ${classColor}`} onClick={() =>  updateformValue(variable, colorcode)}>
+                {
+                variable == "colorHeader" ?
+                        <p>{colorHeader == colorcode && (<i className="fas fa-check" style={{ margin: "0" }}></i>)}</p>
+                :
+                        <p>{colorContent == colorcode && (<i className="fas fa-check" style={{ margin: "0" }}></i>)}</p>
+                }
+                {
+                    option && <input style={styles.boutonColor} type="color" onChange={(e) => updateformValue(variable, e.target.value)} />
+                }
+            </a>
+        </div>
     )
 }
 
@@ -112,9 +115,14 @@ const designForm = () => {
     const {
         photo,
         espacement,
-        policeSize,
-        updateformValue
+        policeSizeTitle,
+        policeSizeSubTitle,
+        policeSizeContent,
+        policeSizeTitleName,
+        updateformValue,
+        espacementLateral
     } = useContext(UserContext);
+
     const styles = {
         slider:{
             height: "30px",
@@ -128,7 +136,7 @@ const designForm = () => {
         <div className="column" style={{ height: "88vh", overflowX: "auto" }}>
             <div className="columns">
                 <div className="column">
-                    <div className="box" id="alignSideBar">
+                    <div className="box">
                         <h1 className="title is-size-5">En-tête</h1>
                         <hr />
                         <label className="label">Alignement :</label>
@@ -150,12 +158,13 @@ const designForm = () => {
                                 </button>
                             </p>
                         </div>
+                        <SliderBar min={130} max={200} step={10} data={espacementLateral} name="espacementLateral" title="Espacement" unite="px"/>
                     </div>
                 </div>
             </div>
             <div className="columns">
                 <div className="column">
-                    <div className="box" id="colorBox">
+                    <div className="box">
                         <h1 className="title is-size-5">Couleurs et Police</h1>
                         <hr />
                         <label className="label">Couleur partie Information :</label>
@@ -219,11 +228,14 @@ const designForm = () => {
 
             <div className="columns">
                 <div className="column">
-                    <div className="box" id="spaceBox">
+                    <div className="box">
                         <h1 className="title is-size-5">Espacements</h1>
                         <hr />
-                        <SliderBar min="8" max="18" step={1} data={policeSize} name="policeSize" title="Police" unite="px"/>
-                        <SliderBar min={1} max={10} step={1} data={espacement} name="espacement" title="Espacement" unite=""/>
+                        <SliderBar min={13} max={2} step={0.1} data={policeSizeTitleName} name="policeSizeTitleName" title="Taille du nom prénom" unite="px"/>
+                        <SliderBar min={8} max={12} step={0.1} data={policeSizeTitle} name="policeSizeTitle" title="Police des titres des sections" unite="px"/>
+                        <SliderBar min={8} max={12} step={0.1} data={policeSizeSubTitle} name="policeSizeSubTitle" title="Police des sous-titres des sections" unite="px"/>
+                        <SliderBar min={4} max={12} step={0.1} data={policeSizeContent} name="policeSizeContent" title="Police des contenus des sections" unite="px"/>
+                        <SliderBar min={8} max={20} step={0.1} data={espacement} name="espacement" title="Espacement" unite=""/>
                     </div>
                 </div>
             </div>
