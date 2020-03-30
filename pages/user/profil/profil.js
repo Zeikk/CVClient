@@ -2,6 +2,7 @@ import React, {useState, useContext, useEffect} from 'react'
 import VueEnsemble from '../../../components/profil/vueEnsemble'
 import SectionCV from '../../../components/profil/cv'
 import InfosProfil from '../../../components/profil/profil'
+import ListeUser from '../../../components/profil/listeUsers'
 import MDP from '../../../components/profil/motDePasse'
 import AdresseMail from '../../../components/profil/adresseMail'
 import Desinscription from '../../../components/profil/desinscrire'
@@ -49,12 +50,21 @@ const Profil = () => {
                                 </span>
                                 <span>Vue d'Ensemble</span>
                             </a></li>
+                            {user.role == 0 ? (
                             <li><a className={profil == 'cv' ? ('is-active'): ('')} onClick={(e) => setProfil('cv')}>
                                 <span class="icon">
                                     <i class="far fa-file-alt"></i>             
                                 </span>
                                 <span>CV</span>
                             </a></li>
+                            ) : (
+                            <li><a className={profil == 'liste' ? ('is-active'): ('')} onClick={(e) => setProfil('liste')}>
+                                <span class="icon">
+                                    <i class="fas fa-users"></i>           
+                                </span>
+                                <span>Liste Utilisateurs</span>
+                            </a></li>
+                            )}
                         </ul>
                         <p class="menu-label">
                             Administration
@@ -105,6 +115,9 @@ const Profil = () => {
                 )}
                 {profil == 'cv' && (
                     <SectionCV/>
+                )}
+                {profil == 'liste' && (
+                    <ListeUser/>
                 )}
                 {profil == 'infosProfil' && (
                     <InfosProfil user = {user}/>

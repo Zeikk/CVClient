@@ -44,6 +44,18 @@ export const getUser = async (id)  => {
 	return res
 }
 
+export const getUsers = async ()  => {
+	
+	const res = await axios.post('https://cv-creator-server.herokuapp.com/users/getUsers'
+	).catch(() => {
+		return {
+			error: true
+		}
+	})
+	console.log(res)
+	return res
+}
+
 export const updateProfil = async (user)  => {
 
 	console.log(user)
@@ -68,6 +80,34 @@ export const updateAdresse = async (user)  => {
 		email: user.mail,
 		email2: user.newMail,
 		password: user.mdp
+	}).catch(() => {
+		return {
+			error: true
+		}
+	})
+	
+	return res
+}
+
+export const deleteUser = async (user)  => {
+
+	console.log(user)
+	const res = await axios.delete('https://cv-creator-server.herokuapp.com/users/me', {
+		id: user.id
+	}).catch(() => {
+		return {
+			error: true
+		}
+	})
+	
+	return res
+}
+
+export const deleteUserAdmin = async (id)  => {
+
+	console.log(id)
+	const res = await axios.post('https://cv-creator-server.herokuapp.com/users/delete', {
+		id: id
 	}).catch(() => {
 		return {
 			error: true
