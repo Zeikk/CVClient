@@ -4,7 +4,6 @@
  * Description : CvCreator, DUT Informatique 
 ******/
 
-
 import React from 'react';
 import VisualisationContentLateral from './visualisationContentLateral'
 

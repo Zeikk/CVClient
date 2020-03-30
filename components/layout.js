@@ -3,6 +3,7 @@
  * Date :  2019/2020
  * Description : CvCreator, DUT Informatique 
 ******/
+
 import React, {useState, useContext} from 'react'
 import Header from './header';
 import Footer from './footer';
@@ -448,8 +449,6 @@ const Layout = props => {
             </UserContext.Provider>
       </div>
   );
-  
-  
 }
 
 export default Layout;

@@ -231,7 +231,7 @@ const designForm = () => {
                     <div className="box">
                         <h1 className="title is-size-5">Espacements</h1>
                         <hr />
-                        <SliderBar min={13} max={2} step={0.1} data={policeSizeTitleName} name="policeSizeTitleName" title="Taille du nom prénom" unite="px"/>
+                        <SliderBar min={13} max={20} step={0.1} data={policeSizeTitleName} name="policeSizeTitleName" title="Taille du nom prénom" unite="px"/>
                         <SliderBar min={8} max={12} step={0.1} data={policeSizeTitle} name="policeSizeTitle" title="Police des titres des sections" unite="px"/>
                         <SliderBar min={8} max={12} step={0.1} data={policeSizeSubTitle} name="policeSizeSubTitle" title="Police des sous-titres des sections" unite="px"/>
                         <SliderBar min={4} max={12} step={0.1} data={policeSizeContent} name="policeSizeContent" title="Police des contenus des sections" unite="px"/>
