@@ -1,3 +1,8 @@
+/******
+ * Authors :  Alexis LEGRAS, Alexis LEPRESLE, Loick LEPREVOST, Matthis RIVAT et Pierre LE CORFF
+ * Date :  2019/2020
+ * Description : CvCreator, DUT Informatique 
+******/
 import React, {useState, useContext} from 'react'
 import Header from './header';
 import Footer from './footer';
@@ -14,10 +19,16 @@ const Layout = props => {
       colorContentInitial,
       pictureSizeInitial,
       policeInitial,
-      policeSizeInitial,
+
+      policeSizeTitleInitial,
+      policeSizeSubTitleInitial,
+      policeSizeContentInitial,
+      policeSizeTitleNameInitial,
+    
       espacementInitial,
       isLogInitial,
       idInitial,
+      espacementLateralInitial,
       sectionaboutLateralInitial
   } = useContext(UserContext);
 
@@ -36,8 +47,16 @@ const Layout = props => {
   const [pictureSize, setpictureSize] = useState(pictureSizeInitial);
   const [pictureShape, setpictureShape] = useState("");
   const [police, setPolice] = useState(policeInitial);
-  const [policeSize, setPoliceSize] = useState(policeSizeInitial);
+
+  const [policeSizeTitle, setPoliceSizeTitle] = useState(policeSizeTitleInitial);
+  const [policeSizeSubTitle, setPoliceSizeSubTitle] = useState(policeSizeSubTitleInitial);
+  const [policeSizeContent, setPoliceSizeContent] = useState(policeSizeContentInitial);
+  const [policeSizeTitleName, setPoliceSizeTitleName] = useState(policeSizeTitleNameInitial);
+
+  
+
   const [espacement, setEspacement] = useState(espacementInitial);
+  const [espacementLateral, setEspacementLateral] = useState(espacementLateralInitial);
 
 
   const [content, setContent] = useState([]);
@@ -161,7 +180,6 @@ const Layout = props => {
               var date = [dateNaissance, formatDate, value]
               setabout_dateDeNaissance_text(retranscription(date, "about_dateDeNaissance_text", about_dateDeNaissance_text))
               break;
-
           case 'about_dateDeNaissance_text':
               setabout_dateDeNaissance_text(value)
               break;
@@ -171,7 +189,6 @@ const Layout = props => {
           case 'about_siteWeb_text':
               setabout_siteWeb_text(value)
               break;
-
           case 'about_facebook':
               setabout_facebook(value)
               break;
@@ -240,14 +257,29 @@ const Layout = props => {
           case 'police':
               setPolice(value)
               break;
-          case 'policeSize':
-              setPoliceSize(value)
+          case 'policeSizeTitle':
+              setPoliceSizeTitle(value)
               break;
-          case 'espacement':
-              setEspacement(value)
-              break;
+        case 'policeSizeSubTitle':
+            setPoliceSizeSubTitle(value)
+            break;
+        case 'policeSizeContent':
+            setPoliceSizeContent(value)
+            break;
+        case 'policeSizeTitleName':
+            setPoliceSizeTitleName(value)
+            break;
+
+        case 'espacement':
+            setEspacement(value)
+            break;
+        case 'espacementLateral':
+                setEspacementLateral(value)
+                break;
+
         case 'sectionaboutLateral':
-                setSectionaboutLateral(value)
+            setSectionaboutLateral(value)
+            break;
 
           //CONTENT PAGE
           case 'content_ExperiencePro':
@@ -392,8 +424,14 @@ const Layout = props => {
               pictureSize: pictureSize,
               pictureShape: pictureShape,
               police: police,
-              policeSize: policeSize,
-              espacement: espacement
+
+              policeSizeTitle: policeSizeTitle,
+              policeSizeSubTitle: policeSizeSubTitle,
+              policeSizeContent: policeSizeContent,
+              policeSizeTitleName: policeSizeTitleName,
+
+              espacement: espacement,
+              espacementLateral: espacementLateral
           }
           }>
             <Head>

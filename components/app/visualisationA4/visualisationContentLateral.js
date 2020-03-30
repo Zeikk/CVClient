@@ -1,3 +1,10 @@
+/******
+ * Authors :  Alexis LEGRAS, Alexis LEPRESLE, Loick LEPREVOST, Matthis RIVAT et Pierre LE CORFF
+ * Date :  2019/2020
+ * Description : CvCreator, DUT Informatique 
+******/
+
+
 import React, { useContext } from 'react';
 import UserContext from "../../UserContext"
 
@@ -7,17 +14,13 @@ const VisualisationContentLateral = (props) => {
         content_langues,
         content_competence,
         content_loisirs,
+        espacement,
+        policeSizeTitle,
+        policeSizeTitleName,
+        policeSizeContent,
     } = useContext(UserContext)
 
     const { content } = props
-
-    const elementStyles = {
-        fontSize: "10px",
-        fontWeight: "400",
-        padding: "0",
-        paddingLeft: "5",
-        margin: "0"
-    };
 
     return (
         <>{
@@ -25,9 +28,9 @@ const VisualisationContentLateral = (props) => {
             content.map((section) => (
                 section.name === "Langue" ? (
                 <>
-                <div className="columns is-vcentered" style={{ margin: "0" }}>
+                <div className="columns is-vcentered" style={{ margin: "0", marginTop: espacement+`px`}}>
                     <div className="column has-text-right is-5" style={{ padding: "0" }}>
-                        <h2 className="title-section-part has-text-weight-bold">Langues</h2>
+                        <h2 className="title-section-part has-text-weight-bold" style={{fontSize: policeSizeTitle+`px`, float: "left"}}>Langues</h2>
                     </div>
                     <div className="column" style={{ margin: "0" }}>
                         <hr style={{ backgroundColor: "#FFF", margin: "0" }} />
@@ -35,25 +38,26 @@ const VisualisationContentLateral = (props) => {
                 </div>
                 {
                     content_langues.map((item) =>
-                        <div className="columns is-vcentered">
-                            <div className="column">
-                                <p style={elementStyles}>{item.nameLanguage}</p>
-                            </div>
-                            <div className="column">
-                                <p style={elementStyles}>{item.text}</p>
-                            </div>
-                        </div>
+                        <p style={{
+                            fontSize: policeSizeContent+'px',
+                            fontWeight: "400",
+                            padding: "0",
+                            paddingLeft: "5px",
+                            margin: "0"
+                        }}>
+                            {item.nameLanguage} {item.text}
+                        </p>
                     )
                 }
             </>
             ) :
                 section.name === "Compétence" ? (
                     <>
-                <div className="columns is-vcentered" style={{ margin: "0" }}>
+                <div className="columns is-vcentered" style={{ margin: "0", marginTop: espacement+`px`}}>
                     <div className="column has-text-right is-5" style={{ padding: "0" }}>
-                        <h2 className="title-section-part has-text-weight-bold">Compétences</h2>
+                        <h2 className="title-section-part has-text-weight-bold" style={{fontSize: policeSizeTitle+`px`, float: "left"}}>Compétences</h2>
                     </div>
-                    <div className="column" style={{ margin: "0" }}>
+                    <div className="column" style={{ margin: "0", marginTop: espacement+`px`}}>
                         <hr style={{ backgroundColor: "#FFF", margin: "0" }} />
                     </div>
                 </div>
@@ -61,7 +65,15 @@ const VisualisationContentLateral = (props) => {
                     content_competence.map((item) =>
                         <div className="columns is-vcentered">
                             <div className="column has-text-right">
-                                <p style={elementStyles}>{item.nameCompetence}</p>
+                                <p style={{
+                                    fontSize: policeSizeContent+'px',
+                                    fontWeight: "400",
+                                    padding: "0",
+                                    paddingLeft: "5px",
+                                    margin: "0"
+                                }}>
+                                    {item.nameCompetence}
+                                </p>
                             </div>
                             <div className="column">
                                 <p>{item.description}</p>
@@ -75,24 +87,25 @@ const VisualisationContentLateral = (props) => {
                 (
                     section.name === "Loisirs" && (
                             <>
-                <div className="columns is-vcentered" style={{ margin: "0" }}>
+                <div className="columns is-vcentered" style={{ margin: "0", marginTop: espacement+`px`}}>
                     <div className="column has-text-right is-5" style={{ padding: "0" }}>
-                        <h2 className="title-section-part has-text-weight-bold">Loisirs</h2>
+                        <h2 className="title-section-part has-text-weight-bold" style={{fontSize: policeSizeTitle+`px`, float: "left"}}>Loisirs</h2>
                     </div>
-                    <div className="column" style={{ margin: "0" }}>
+                    <div className="column" style={{ margin: "0", marginTop: espacement+`px`}}>
                         <hr style={{ backgroundColor: "#FFF", margin: "0" }} />
                     </div>
                 </div>
                 {
                     content_loisirs.map((item) =>
-                        <div className="columns is-vcentered">
-                            <div className="column has-text-right">
-                                <p style={elementStyles}>{item.nameLoisir}</p>
-                            </div>
-                            <div className="column">
-                                <p>{item.description}</p>
-                            </div>
-                        </div>
+                        <p style={{
+                            fontSize: policeSizeContent+'px',
+                            fontWeight: "400",
+                            padding: "0",
+                            paddingLeft: "5px",
+                            margin: "0"
+                        }}>
+                            {item.nameLoisir}
+                        </p>
                     )
                 }
             </>

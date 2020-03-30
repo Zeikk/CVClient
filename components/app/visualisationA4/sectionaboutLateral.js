@@ -1,3 +1,10 @@
+/******
+ * Authors :  Alexis LEGRAS, Alexis LEPRESLE, Loick LEPREVOST, Matthis RIVAT et Pierre LE CORFF
+ * Date :  2019/2020
+ * Description : CvCreator, DUT Informatique 
+******/
+
+
 import React from 'react';
 import VisualisationContentLateral from './visualisationContentLateral'
 
@@ -23,9 +30,21 @@ const SectionaboutLateral = ({data}) => {
         about_instagram_text,
         about_twitter_text,
         about_github_text,
+        espacementLateral,
+        sectionaboutLateral,
+        policeSizeTitleName,
+        policeSizeContent,
     } = data;
     return(
-        <div className="info-cv-min" style={{ backgroundColor: colorHeader, "overflow-wrap": "break-word" }}>
+        <div 
+            className="info-cv-min" 
+            style={{ 
+                backgroundColor: colorHeader, 
+                "overflow-wrap": "break-word",
+                width: espacementLateral+'px', 
+                float: sectionaboutLateral,
+            }}
+        >
             {
                 photo &&
                 <div align="center">
@@ -34,26 +53,28 @@ const SectionaboutLateral = ({data}) => {
                     </figure>
                 </div>
             }
-            <h2 className="name-section-min" id="nom">{nom}</h2>
-            <h2 className="name-section-min" id="prenom">{prenom}</h2>
+            <div align="center" style={{paddingTop:"5px"}}>
+                <h2  style={{fontSize: policeSizeTitleName+'px'}} id="nom">{nom}</h2>
+                <h2  style={{fontSize: policeSizeTitleName+'px'}} id="prenom">{prenom}</h2>
+            </div>
             <div className="info-cv-content-min">
                 <div className="info-cv-content-element-min">
                     <i className="k-icon k-i-marker-pin"></i>
-                    <p className="p-min" id="adresse">{adresse}, {ville} {postal}</p>
+                    <p style={{fontSize: policeSizeContent+'px'}}   id="adresse">{adresse}, {ville} {postal}</p>
                 </div>
                 <div className="info-cv-content-element-min">
                     <img src="../../static/images/phone.png" alt="iconPhone" />
-                    <p className="p-min" id="tel2"></p><p className="p-min" id="tel">{tel}</p>
+                    <p style={{fontSize: policeSizeContent+'px'}} id="tel2"></p><p style={{fontSize: policeSizeContent+'px'}}  id="tel">{tel}</p>
                 </div>
                 <div className="info-cv-content-element-min">
                     <i className="k-icon k-i-email"></i>
-                    <p className="p-min" id="mail" style={{ width: "80px", "overflow-wrap": "break-word" }}>{mail}</p>
+                    <p id="mail" style={{ width: "80px", "overflow-wrap": "break-word", fontSize: policeSizeContent+'px'}}>{mail}</p>
                 </div>
                 {
                     about_dateDeNaissance_text != "" && (
                         <div className="info-cv-content-element-min">
                             <i className="k-icon k-i-calendar"></i>
-                            <p className="p-min" id="dateNaissance">{about_dateDeNaissance_text}</p>
+                            <p style={{fontSize: policeSizeContent+'px'}} id="dateNaissance">{about_dateDeNaissance_text}</p>
                         </div>
                     )
                 }
@@ -61,7 +82,7 @@ const SectionaboutLateral = ({data}) => {
                     about_facebook_text != "" && (
                         <div className="info-cv-content-element-min">
                             <i className="k-icon k-i-facebook"></i>
-                            <p className="p-min" id="facebook">{about_facebook_text}</p>
+                            <p style={{fontSize: policeSizeContent+'px'}}  id="facebook">{about_facebook_text}</p>
                         </div>
                     )
                 }
@@ -69,7 +90,7 @@ const SectionaboutLateral = ({data}) => {
                     about_linkedin_text != "" && (
                         <div className="info-cv-content-element-min">
                             <i className="k-icon k-i-linkedin"></i>
-                            <p className="p-min" id="facebook">{about_linkedin_text}</p>
+                            <p style={{fontSize: policeSizeContent+'px'}}   id="facebook">{about_linkedin_text}</p>
                         </div>
                     )
                 }
@@ -77,7 +98,7 @@ const SectionaboutLateral = ({data}) => {
                     about_instagram_text != "" && (
                         <div className="info-cv-content-element-min">
                             <img src="../../static/images/instagram.png" alt="iconInstagram" />
-                            <p className="p-min" id="instagram">{about_instagram_text}</p>
+                            <p style={{fontSize: policeSizeContent+'px'}}  id="instagram">{about_instagram_text}</p>
                         </div>
                     )
                 }
@@ -85,7 +106,7 @@ const SectionaboutLateral = ({data}) => {
                     about_twitter_text != "" && (
                         <div className="info-cv-content-element-min">
                             <i className="k-icon k-i-twitter"></i>
-                            <p className="p-min" id="facebook">{about_twitter_text}</p>
+                            <p style={{fontSize: policeSizeContent+'px'}} id="facebook">{about_twitter_text}</p>
                         </div>
                     )
                 }
@@ -93,7 +114,7 @@ const SectionaboutLateral = ({data}) => {
                     about_github_text != "" && (
                         <div className="info-cv-content-element-min">
                             <img src="../../static/images/github.png" alt="iconGithub" />
-                            <p className="p-min" id="facebook">{about_github_text}</p>
+                            <p style={{fontSize: policeSizeContent+'px'}} id="facebook">{about_github_text}</p>
                         </div>
                     )
                 }
@@ -101,14 +122,14 @@ const SectionaboutLateral = ({data}) => {
                     about_siteWeb_text && (
                         <div className="info-cv-content-element-min">
                             <i className="k-icon k-i-hyperlink"></i>
-                            <a className="p-min has-text-white" href={about_siteWeb_text} >{about_siteWeb_text}</a>
+                            <a className="has-text-white" style={{fontSize: policeSizeContent+'px'}}   href={about_siteWeb_text} >{about_siteWeb_text}</a>
                         </div>
                     )
                 }
                 {
                     about_permisDeConduire_text && (
                         <div className="info-cv-content-element-min">
-                            <p className="p-min" >{about_permisDeConduire_text}</p>
+                            <p style={{fontSize: policeSizeContent+'px'}} >{about_permisDeConduire_text}</p>
                         </div>
                     )
                 }

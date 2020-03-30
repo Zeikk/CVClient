@@ -1,6 +1,11 @@
+/******
+ * Authors :  Alexis LEGRAS, Alexis LEPRESLE, Loick LEPREVOST, Matthis RIVAT et Pierre LE CORFF
+ * Date :  2019/2020
+ * Description : CvCreator, DUT Informatique 
+******/
+
 import React, { useContext } from 'react';
 import UserContext from "../../UserContext"
-
 
 const VisualisationContent = props => {
     const {
@@ -9,31 +14,30 @@ const VisualisationContent = props => {
         content_resume,
         content_projet,
         content_certification,
-        policeSize
+        policeSizeTitle, 
+        policeSizeSubTitle,
+        policeSizeContent,
+        espacement
     } = useContext(UserContext)
-
-    const styleFont={ 
-        fontSize: `${policeSize}`
-    }
+  
 
     const { content } = props
-    console.log("police size : "+policeSize);
     return (
         <div>{
         content &&
         content.map((section) => (
             section.name === "Résumé" ? (
                 <>
-                    <div key={section.name} className="columns is-vcentered section-name">
+                    <div key={section.name} className="columns is-vcentered section-name" style={{marginTop: espacement+`px`}}>
                         <div className="column is-2">
-                            <h2 className="title-section-part has-text-weight-bold" style={{fontSize:policeSize+2}}>Profil</h2>
+                            <h2 className="title-section-part has-text-weight-bold" style={{fontSize:policeSizeTitle+`px`, float: "right"}}>Profil</h2>
                         </div>
                         <div className="column is-10">
                             <hr style={{ backgroundColor: "#333" }} />
                         </div>
                     </div>
-                    <div className="content">
-                        <p className="p-min">
+                    <div style={{marginTop: espacement+`px`}}>
+                        <p style={{fontSize: policeSizeContent+`px`}}>
                             {content_resume[0].resume}
                         </p>
                     </div>
@@ -41,9 +45,9 @@ const VisualisationContent = props => {
             ) :
                 section.name === "Formation" ? (
                     <>
-                        <div key={section.name} className="columns is-vcentered section-name">
+                        <div key={section.name} className="columns is-vcentered section-name" style={{marginTop: espacement+`px`}}>
                             <div className="column is-2" style={{ padding: "0" }}>
-                                <h2 className="title-section-part has-text-weight-bold" style={styleFont} >Formations</h2>
+                                <h2 className="title-section-part has-text-weight-bold" style={{fontSize: policeSizeTitle+`px`}}>Formations</h2>
                             </div>
                             <div className="column is-10">
                                 <hr style={{ backgroundColor: "#333" }} />
@@ -52,10 +56,10 @@ const VisualisationContent = props => {
                         {
                             content_formation.map((item) =>
                                 <>
-                                    <div key={item.name} className="part-element-section-min">
+                                    <div key={item.name} className="part-element-section-min" style={{marginTop: espacement+`px`}}>
                                         <div className="part-element-section-datetitle-min">
-                                            <div className="part-element-section-title-min">
-                                                <p>{item.nameDegree} | {item.nameSchool}</p>
+                                            <div style={{fontSize: policeSizeSubTitle+`px`}}>
+                                                <p className="has-text-weight-semibold">{item.nameDegree} | {item.nameSchool}</p>
                                             </div>
                                             <div className="part-element-section-date-min">
                                                 <p>{item.dateDebut} - {item.dateFin}</p>
@@ -64,7 +68,7 @@ const VisualisationContent = props => {
                                         <div className="part-element-section-lieu-min">
                                             <p>{item.ville} , {item.pays}</p>
                                         </div>
-                                        <div className="part-element-section-description-min">
+                                        <div style={{fontSize: policeSizeContent+`px`}}>
                                             <p>{item.description}</p>
                                         </div>
                                     </div>
@@ -75,9 +79,9 @@ const VisualisationContent = props => {
                 ) :
                     section.name === "Expérience Professionnelle" ? (
                         <>
-                            <div className="columns is-vcentered section-name">
+                            <div className="columns is-vcentered section-name" style={{marginTop: espacement+`px`}}>
                                 <div className="column is-7" style={{ padding: "0" }}>
-                                    <h2 className="title-section-part has-text-weight-bold" style={styleFont}>Expérience Professionnelle</h2>
+                                    <h2 className="title-section-part has-text-weight-bold"  style={{fontSize: policeSizeTitle+`px`}}>Expérience Professionnelle</h2>
                                 </div>
                                 <div className="column is-5">
                                     <hr style={{ backgroundColor: "#333" }} />
@@ -86,10 +90,10 @@ const VisualisationContent = props => {
                             {
                                 content_ExperiencePro.map((item) =>
                                     <>
-                                        <div className="part-element-section-min">
+                                        <div className="part-element-section-min" style={{marginTop: espacement+`px`}}>
                                             <div className="part-element-section-datetitle-min">
-                                                <div className="part-element-section-title-min">
-                                                    <p>{item.namePoste} | {item.nameEntreprise}</p>
+                                                <div style={{fontSize: policeSizeSubTitle+`px`}}>
+                                                    <p className="has-text-weight-semibold">{item.namePoste} | {item.nameEntreprise}</p>
                                                 </div>
                                                 <div className="part-element-section-date-min">
                                                     <p>{item.dateDebut} - {item.dateFin}</p>
@@ -98,7 +102,7 @@ const VisualisationContent = props => {
                                             <div className="part-element-section-lieu-min">
                                                 <p>{item.ville} , {item.pays}</p>
                                             </div>
-                                            <div className="part-element-section-description-min">
+                                            <div style={{fontSize: policeSizeContent+`px`}}>
                                                 <p>{item.description}</p>
                                             </div>
                                         </div>
@@ -111,9 +115,9 @@ const VisualisationContent = props => {
                         (
                             section.name === "Projet" ? (
                                 <>
-                                    <div className="columns is-vcentered section-name">
+                                    <div className="columns is-vcentered section-name" style={{marginTop: espacement+`px`}}>
                                         <div className="column is-1" style={{ padding: "0" }}>
-                                            <h2 className="title-section-part has-text-weight-bold">Projets</h2>
+                                            <h2 className="title-section-part has-text-weight-bold"  style={{fontSize: policeSizeTitle+`px`}}>Projets</h2>
                                         </div>
                                         <div className="column is-11">
                                             <hr style={{ backgroundColor: "#333" }} />
@@ -122,16 +126,16 @@ const VisualisationContent = props => {
                                     {
                                         content_projet.map((item) =>
                                             <>
-                                                <div className="part-element-section-min">
+                                                <div className="part-element-section-min" style={{marginTop: espacement+`px`}}>
                                                     <div className="part-element-section-datetitle-min">
-                                                        <div className="part-element-section-title-min">
-                                                            <p>{item.nameProject}</p>
+                                                        <div style={{fontSize: policeSizeSubTitle+`px`}}>
+                                                            <p className="has-text-weight-semibold">{item.nameProject}</p>
                                                         </div>
                                                         <div className="part-element-section-date-min">
                                                             <p>{/*item.dateDebut*/} - {/*item.dateFin*/}</p>
                                                         </div>
                                                     </div>
-                                                    <div className="part-element-section-description-min">
+                                                    <div style={{fontSize: policeSizeContent+`px`}}>
                                                         <p>{item.description}</p>
                                                     </div>
                                                 </div>
@@ -144,9 +148,9 @@ const VisualisationContent = props => {
                                 (
                                     section.name === "Certification" && (
                                         <>
-                                            <div className="columns is-vcentered section-name">
+                                            <div className="columns is-vcentered section-name" style={{marginTop: espacement+`px`}}>
                                                 <div className="column is-2" style={{ padding: "0" }}>
-                                                    <h2 className="title-section-part has-text-weight-bold">Certification</h2>
+                                                    <h2 className="title-section-part has-text-weight-bold"  style={{fontSize: policeSizeTitle+`px`}}>Certification</h2>
                                                 </div>
                                                 <div className="column is-10">
                                                     <hr style={{ backgroundColor: "#333" }} />
@@ -155,16 +159,16 @@ const VisualisationContent = props => {
                                             {
                                                 content_certification.map((item) =>
                                                     <>
-                                                        <div className="part-element-section-min">
+                                                        <div className="part-element-section-min" style={{marginTop: espacement+`px`}}>
                                                             <div className="part-element-section-datetitle-min">
-                                                                <div className="part-element-section-title-min">
-                                                                    <p>{item.nameCertification}</p>
+                                                                <div style={{fontSize: policeSizeSubTitle+`px`}}>
+                                                                    <p className="has-text-weight-semibold">{item.nameCertification}</p>
                                                                 </div>
                                                                 <div className="part-element-section-date-min">
                                                                     <p>{/*item.dateDebut*/} - {/*item.dateFin*/}</p>
                                                                 </div>
                                                             </div>
-                                                            <div className="part-element-section-description-min">
+                                                            <div style={{fontSize: policeSizeContent+`px`}}>
                                                                 <p>{item.infoPlus}</p>
                                                             </div>
                                                         </div>

@@ -1,3 +1,10 @@
+/******
+ * Authors :  Alexis LEGRAS, Alexis LEPRESLE, Loick LEPREVOST, Matthis RIVAT et Pierre LE CORFF
+ * Date :  2019/2020
+ * Description : CvCreator, DUT Informatique 
+******/
+
+
 import React,{useState} from 'react';
 
 const SectionaboutHeader = ({ data }) => {
