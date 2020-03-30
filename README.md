@@ -24,4 +24,4 @@ Puis une fois le répertoire sur votre machine, accédez au dossier en ligne de 
 ### Troisième étape: 
 Ensuite afin de deployer l'application web en local faite la commande : *npm run dev*
 ### Quatrième étape: 
-L'application web sera disponible sur l'url affiché sur la console.
+L'application web sera disponible sur l'url affichée sur la console.
