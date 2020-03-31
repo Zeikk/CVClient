@@ -136,7 +136,7 @@ const designForm = () => {
         <div className="column" style={{ height: "88vh", overflowX: "auto" }}>
             <div className="columns">
                 <div className="column">
-                    <div className="box">
+                    <div className="box" id="alignSideBar">
                         <h1 className="title is-size-5">En-tête</h1>
                         <hr />
                         <label className="label">Alignement :</label>
@@ -164,7 +164,7 @@ const designForm = () => {
             </div>
             <div className="columns">
                 <div className="column">
-                    <div className="box">
+                    <div className="box" id="colorBox">
                         <h1 className="title is-size-5">Couleurs et Police</h1>
                         <hr />
                         <label className="label">Couleur partie Information :</label>
@@ -229,7 +229,7 @@ const designForm = () => {
             <div className="columns">
                 <div className="column">
                     <div className="box">
-                        <h1 className="title is-size-5">Espacements</h1>
+                        <h1 className="title is-size-5" id="spaceBox">Espacements</h1>
                         <hr />
                         <SliderBar min={13} max={20} step={0.1} data={policeSizeTitleName} name="policeSizeTitleName" title="Taille du nom prénom" unite="px"/>
                         <SliderBar min={8} max={12} step={0.1} data={policeSizeTitle} name="policeSizeTitle" title="Police des titres des sections" unite="px"/>
