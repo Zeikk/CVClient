@@ -71,8 +71,8 @@ const dashboard = () => {
         elementArray_2.push(document.getElementById("alignSideBar"));
         elementArray_2.push(document.getElementById("colorBox"));
         elementArray_2.push(document.getElementById("spaceBox"));
-        txt_2.push("11/13 : Bienvenu sur la mise en forme de votre ici vous avez la possibilité de choisir de quel côté la bar de renseignements apparâitra !");
-        txt_2.push("12/13 : Ceci est une color box, elle permet de changer la couleur de votre bar de renseignements, et aussi la police utilisé");
+        txt_2.push("11/13 : Bienvenue sur la mise en forme de votre CV ici. Par exemple, vous avez la possibilité de choisir de quel côté la barre de renseignements apparaîtra !");
+        txt_2.push("12/13 : Ceci est une color box, elle permet de changer la couleur de votre barre de renseignements, et aussi la police utilisée.");
         txt_2.push("13/13 : Et pour finir voici la tool box qui vous permet de choisir la taille de votre police et l'espacement entre les textes !");
         creerCommentaire(elementArray_2[0],txt_2[0],elementArray_2,txt_2);
         localStorage.setItem('firstVisite', 'true')
@@ -88,15 +88,15 @@ const dashboard = () => {
         elementArray.push(document.getElementById("cityInsert"));
         elementArray.push(document.getElementById("adressInsert"));
         elementArray.push(document.getElementById("facultativeInsert"));
-        txt.push("1/13 : Le bouton photo, utilisez le pour insérer une photo à votre CV ");
-        txt.push("2/13 : Champ nom, il est obligatoire de le renseigner afin de valider votre CV");
-        txt.push("3/13 : Champ prénom, également obligatoire de le renseigner afin de valider votre CV");
-        txt.push("4/13 : Champ email, obligatoire et important pour votre recruteur puisse communiquer avec vous !");
-        txt.push("5/13 : Champ télephone, exemple si votre numéro est 06 07 08 09 10 alors il faudra écrire  6 07 08 09 10");
-        txt.push("6/13 : Champ code postal, il est obligatoire et génère automatiquement la ville correspondante");
-        txt.push("7/13 : Si votre code postale est entré correctement votre ville sera automatiquement inscrite ici");
+        txt.push("1/13 : Le bouton photo, utilisez-le pour insérer une photo dans votre CV.");
+        txt.push("2/13 : Champ nom, il est obligatoire de le renseigner afin de valider votre CV.");
+        txt.push("3/13 : Champ prénom, également obligatoire de le renseigner afin de valider votre CV.");
+        txt.push("4/13 : Champ email, obligatoire et important pour que votre recruteur puisse communiquer avec vous.");
+        txt.push("5/13 : Champ télephone avec un pré-traitement. Par exemple si votre numéro est 06 07 08 09 10 alors il faudra écrire  6 07 08 09 10.");
+        txt.push("6/13 : Champ code postal, il est obligatoire et génère automatiquement la ville correspondante.");
+        txt.push("7/13 : Si votre code postale est entré correctement votre ville sera automatiquement inscrite.");
         txt.push("8/13 : On ne peut pas deviner votre rue donc vous allez devoir la rentrer manuellement =(");
-        txt.push("9/13 : Ces boutons sont très important ! Ils vous permettent d'inscrire des informations supplémentaire sur vous comme votre permis par exemple !");
+        txt.push("9/13 : Ces boutons sont très important ! Ils vous permettent d'inscrire des informations supplémentaires sur vous comme votre permis par exemple !");
         elToGo.push(document.getElementById("Contenu").firstChild);
     }
 
