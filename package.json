@@ -30,7 +30,7 @@
     "isomorphic-fetch": "^2.2.1",
     "jest": "^24.9.0",
     "next": "^9.2.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "prebuild-install": "^5.3.3",
     "react": "^16.8.4",
     "react-collapsible": "^2.6.2",
